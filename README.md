@@ -1,0 +1,4 @@
+grails
+======
+
+sample grails projects
