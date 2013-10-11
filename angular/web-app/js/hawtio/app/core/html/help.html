@@ -1,0 +1,29 @@
+<div ng-controller="Core.HelpController">
+  <div class="row-fluid">
+    <div class="span2">
+      <ul class="nav help-sidebar">
+        <li ng-repeat="(topic, subtopic) in topics" ng-class="{active : isTopicActive(topic)}">
+          <a ng-href="#/help/{{topic}}">{{mapTopicName(topic)}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="span1 help-spacer"></div>
+    <div class="span8">
+      <div class="row">
+        <ul class="nav nav-tabs connected">
+          <li ng-repeat="(subtopic, url) in topics[topic]" ng-class="{active : isSubTopicActive(subtopic)}">
+            <a ng-href="#/help/{{topic}}/{{subtopic}}">{{mapSubTopicName(topic, subtopic)}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="row help-display">
+        <div ng-hide="!html">
+          <div ng-bind-html-unsafe="html"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

@@ -16,8 +16,10 @@
     <h1>Contacts</h1>
     <div ng-view></div>
 </div>
+
 <g:javascript src="jquery-1.10.2.min.js"/>
 <g:javascript src="angular.js"/>
+<g:javascript src="angular-resource.js"/>
 <g:javascript src="contacts.js"/>
 </body>
 </html>

@@ -34,7 +34,7 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-
+        compile 'org.jolokia:jolokia-core:1.1.1'
         // runtime 'mysql:mysql-connector-java:5.1.20'
     }
 
