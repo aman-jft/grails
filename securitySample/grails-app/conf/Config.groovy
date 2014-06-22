@@ -120,3 +120,4 @@ log4j = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.jft.prashant.sec.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.jft.prashant.sec.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.jft.prashant.sec.Role'
+grails.plugin.springsecurity.logout.postOnly = false

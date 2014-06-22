@@ -17,7 +17,9 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/logout/**': ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/j_spring_security_check': ['IS_AUTHENTICATED_ANONYMOUSLY'],
 
+        '/user/index': ['IS_AUTHENTICATED_FULLY'],
         '/user/**': ["hasAnyRole('${com.jft.prashant.sec.role.admin}')"],
+        '/role/index': ['IS_AUTHENTICATED_FULLY'],
         '/role/**': ["hasAnyRole('${com.jft.prashant.sec.role.admin}')"],
         '/userRole/**': ["hasAnyRole('${com.jft.prashant.sec.role.admin}')"],
         '/*': ['IS_AUTHENTICATED_FULLY']
