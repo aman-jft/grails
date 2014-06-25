@@ -15,6 +15,10 @@ class UserController {
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
 
+    def list = {
+        render(template: 'list', model: [userInstanceList:User.list(params)])
+    }
+
     def show(User userInstance) {
         respond userInstance
     }
