@@ -33,4 +33,16 @@ class UserControllerSpec extends IntegrationSpec{
         renderedMap.model
         renderedMap.model.userInstanceList.size() > 0
     }
+
+    void "test index"(){
+        when:
+        controller.index()
+
+        then:
+        renderedMap
+        renderedMap.view
+        renderedMap.view.equals('index')
+        renderedMap.model
+        renderedMap.model.userInstanceList.size() > 0
+    }
 }
