@@ -1,11 +1,12 @@
 package com.jft.prashant.sec
 
 import grails.test.spock.IntegrationSpec
+import spock.lang.Unroll
 
 /**
  * Created by prashant on 26/6/14.
  */
-class UserControllerSpec extends IntegrationSpec{
+class UserControllerSpec extends IntegrationSpec {
 
     UserController controller
     Map renderedMap
@@ -22,7 +23,7 @@ class UserControllerSpec extends IntegrationSpec{
 
     }
 
-    void "test list"(){
+    void "test list"() {
         when:
         controller.list()
 
@@ -34,7 +35,7 @@ class UserControllerSpec extends IntegrationSpec{
         renderedMap.model.userInstanceList.size() > 0
     }
 
-    void "test index"(){
+    void "test index"() {
         when:
         controller.index()
 
@@ -44,5 +45,28 @@ class UserControllerSpec extends IntegrationSpec{
         renderedMap.view.equals('index')
         renderedMap.model
         renderedMap.model.userInstanceList.size() > 0
+    }
+
+    @Unroll
+    void "test create for username: #username"() {
+        when:
+        controller.params['username'] = username
+        controller.params['firstName'] = firstName
+        controller.params['lastName'] = lastName
+        controller.params['password'] = password
+        controller.params['email'] = email
+
+        controller.save()
+
+        then:
+        User.list().last().username == username
+
+        where:
+        username  | firstName | lastName | password | email
+        'apandey' | 'Amit'    | 'Pandey' | 'p'      | 'pgupta@jellyfishtechnologies.com'
+        'neeraj'  | 'Neeraj'  | 'Bhatt'  | 'p'      | 'neeraj@jellyfishtechnologies.com'
+        'vivek'   | 'Vivek'   | 'Yadav'  | 'p'      | 'vivek@jellyfishtechnologies.com'
+        'manish'  | 'Manish'  | 'Bharti' | 'p'      | 'manish@jellyfishtechnologies.com'
+        'vsadh'   | 'Vivek'   | 'Sadh'   | 'p'      | 'vsadh@jellyfishtechnologies.com'
     }
 }
